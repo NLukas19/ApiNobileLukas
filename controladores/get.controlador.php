@@ -1,22 +1,25 @@
-<?php   
+<?php
 
-class GetControlador{
+class GetControlador
+{
 
-    static public function TraerInformacion($table){
+    static public function TraerInformacion($table)
+    {
 
-        $respuesta = GetModelo:: TraerInformacion($table);
+        $respuesta = GetModelo::TraerInformacion($table);
 
         $devolver = new GetControlador();
-        $devolver -> frcRespuesta($respuesta, "TraerInformacion");
+        $devolver->frcRespuesta($respuesta, "TraerInformacion");
     }
 
-    private function frcRespuesta($respuesta, $metodo){
+    private function frcRespuesta($respuesta, $metodo)
+    {
 
-        if (!empty($respuesta)){
+        if (!empty($respuesta)) {
 
             $json = array(
                 "status" => 200,
-                "total" => count ($respuesta),
+                "total" => count($respuesta),
                 "result" => $respuesta
 
             );
