@@ -18,6 +18,9 @@ if (count($rutasArray)== 1){
 
         if (isset($_GET["linkTo"]) && isset($_GET["equalTo"])){
 
+            $respuesta = new GetControlador ();
+            $respuesta ->FiltradoDeDatos(explode("?", $rutasArray[2])[0], $_GET["linkTo"], $_GET["equalTo"]);
+
             
         } else {
             $respuesta = new GetControlador();

@@ -12,6 +12,16 @@ class GetControlador
         $devolver->frcRespuesta($respuesta, "TraerInformacion");
     }
 
+        //peticion GET con filtro
+    static public function FiltradoDeDatos($table, $linkTo, $equalTo){
+
+        $respuesta = GetModelo::FiltradoDeDatos($table, $linkTo, $equalTo);
+
+        $devolver= new GetControlador();
+        $devolver ->frcRespuesta($respuesta, "FiltradoDeDatos");
+
+    }
+    //respuesta del controlador
     private function frcRespuesta($respuesta, $metodo)
     {
 
@@ -32,7 +42,7 @@ class GetControlador
 
             );
         }
-        echo json_encode($json, http_response_code($json['estado']));
+        echo json_encode($json, http_response_code($json['status']));
         return;
     }
 
